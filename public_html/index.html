@@ -5,6 +5,28 @@
     <script type="text/javascript">
     $(document).ready(function() {
         var current;
+        var next = function() {
+            var url = '';
+            if (current.next().length) {
+                current = current.next();
+            } else {
+                current = current.siblings().first();
+            }
+            url = 'url('+current.attr('href')+')';
+            $('#big').css('background-image', url).show();
+            return false;
+        };
+        var previous = function() {
+            var url = '';
+            if (current.prev().length) {
+                current = current.prev();
+            } else {
+                current = current.siblings().last();
+            }
+            url = 'url('+current.attr('href')+')';
+            $('#big').css('background-image', url).show();
+            return false;
+        };
         $('#menu a').click(function() {
             var id = $(this).attr('href');
             $('.thumbs').hide();
@@ -21,27 +43,14 @@
         $('#big').click(function() {
             $(this).hide();
         });
-        $('#next').click(function() {
-            var url = '';
-            if (current.next().length) {
-                current = current.next();
-            } else {
-                current = current.siblings().first();
+        $('#next').click(next);
+        $('#previous').click(previous);
+        $(document).keydown(function (e) {
+            if (e.keyCode == 37) {
+                previous();
+            } else if (e.keyCode == 39) {
+                next();
             }
-            url = 'url('+current.attr('href')+')';
-            $('#big').css('background-image', url).show();
-            return false;
-        });
-        $('#previous').click(function() {
-            var url = '';
-            if (current.prev().length) {
-                current = current.prev();
-            } else {
-                current = current.siblings().last();
-            }
-            url = 'url('+current.attr('href')+')';
-            $('#big').css('background-image', url).show();
-            return false;
         });
     });
     </script>
@@ -128,28 +137,29 @@ div#big {
     display: none;
 }
 div.nav {
-    color: rgba(0,0,0,0.1);
     position: absolute;
     height: 100%;
-    width: 150px;
+    width: 100px;
     text-align: center;
 }
-div.nav:hover {
-    color: rgba(1,1,1,1);
+div.nav a:hover {
+    color: rgba(180,180,180,1);
 }
 div.nav a {
-    height: 100%;
+    color: rgba(255,255,255,0.1);
+    position: absolute;
+    height: 20px;
+    margin-top: -10px;
     left: 0;
     right: 0;
-    top: 0;
-    bottom: 0;
+    top: 50%;
     margin: auto;
 }
 div#next {
-    left: 0px;
+    right: 0px;
 }
 div#previous {
-    right: 0px;
+    left: 0px;
 }
 div#itll-still-be-there {
     width: 2300px;
@@ -167,7 +177,7 @@ div#nolo-contendere {
     width: 2200px;
 }
 div#untitled {
-    width: 10500px;
+    width: 8700px;
 }
 </style>
 </head>
@@ -253,7 +263,7 @@ div#untitled {
         </div>
     </div>
     <div id="big">
-        <div class="nav" id="next"><a href="next" class="navlink">Next</a></div>
+        <div class="nav" id="next"><a href="next" class="navlink">Next</a> easdf</div>
         <div class="nav" id="previous"><a href="previous" class="navlink">Previous</a></div>
     </div>
 </body>
