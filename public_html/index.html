@@ -27,6 +27,9 @@
             $('#big').css('background-image', url).show();
             return false;
         };
+        var dismiss = function() {
+            $('#big').hide();
+        };
         $('#menu a').click(function() {
             var id = $(this).attr('href');
             $('.thumbs').hide();
@@ -40,9 +43,7 @@
             $('#big').css('background-image', url).show();
             return false;
         });
-        $('#big').click(function() {
-            $(this).hide();
-        });
+        $('#big').click(dismiss);
         $('#next').click(next);
         $('#previous').click(previous);
         $(document).keydown(function (e) {
@@ -50,6 +51,8 @@
                 previous();
             } else if (e.keyCode == 39) {
                 next();
+            } else if (e.keyCode == 27) {
+                dismiss();
             }
         });
     });
@@ -202,7 +205,7 @@ div#untitled {
         </div>
         <div class="thumbs" id="contented">
             <a href="http://farm8.staticflickr.com/7002/6771215331_bd6e7ffc62_o.jpg"><img class="first" src="http://farm8.staticflickr.com/7002/6771215331_53e863f01b.jpg"></a>
-            <a href="http://farm6.staticflickr.com/5321/9345913819_d14826f789_o.jpg"><img src="http://farm6.staticflickr.com/5321/9345913819_eb9c5bcf2d.jpg"></a>
+            <a href="http://farm6.staticflickr.com/5321/9345913819_d14826f789_o.jpg"><img src="http://farm6.staticflickr.com/5321/9345913819_eb9c5bcf2d_c.jpg"></a>
             <a href="http://farm8.staticflickr.com/7165/6786696359_75b1559220_o.jpg"><img src="http://farm8.staticflickr.com/7165/6786696359_9c7f981f2b.jpg"></a>
             <a href="http://farm8.staticflickr.com/7030/6786694645_15c7c919d8_o.jpg"><img src="http://farm8.staticflickr.com/7030/6786694645_79030a7112.jpg"></a>
         </div>
@@ -216,9 +219,9 @@ div#untitled {
             <a href="http://farm6.staticflickr.com/5328/7227140226_4ceb6a6ee8_o.jpg"><img src="http://farm6.staticflickr.com/5328/7227140226_d1b956567f.jpg"></a>
         </div>
         <div class="thumbs" id="cost-of-living">
-            <a href="http://farm8.staticflickr.com/7022/6786696667_36ab36e813_o.jpg"><img class="first" src="http://farm8.staticflickr.com/7022/6786696667_c236c51bf4.jpg"></a>
-            <a href="http://farm8.staticflickr.com/7153/6758746411_0cef8c5c6e_o.jpg"><img src="http://farm8.staticflickr.com/7153/6758746411_07a2dfaa23.jpg"></a>
+            <a href="http://farm8.staticflickr.com/7153/6758746411_0cef8c5c6e_o.jpg"><img class="first" src="http://farm8.staticflickr.com/7153/6758746411_07a2dfaa23.jpg"></a>
             <a href="http://farm8.staticflickr.com/7015/6758746093_4b287184c3_o.jpg"><img src="http://farm8.staticflickr.com/7015/6758746093_cd49328178.jpg"></a>
+            <a href="http://farm8.staticflickr.com/7022/6786696667_36ab36e813_o.jpg"><img src="http://farm8.staticflickr.com/7022/6786696667_c236c51bf4.jpg"></a>
             <a href="http://farm8.staticflickr.com/7006/6758746711_a1b57c0e9a_o.jpg"><img src="http://farm8.staticflickr.com/7006/6758746711_af437bb5b2.jpg"></a>
             <a href="http://farm8.staticflickr.com/7023/6758745901_8725be608f_o.jpg"><img src="http://farm8.staticflickr.com/7023/6758745901_036217bd00.jpg"></a>
         </div>
