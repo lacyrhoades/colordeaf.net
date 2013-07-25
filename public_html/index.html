@@ -81,11 +81,6 @@ a {
 ul {
     list-style-type: none;
 }
-img {
-    display: inline;
-    margin: 5px;
-        height: 320px;
-}
 div#menu {
     background-color: none;
     position: absolute;
@@ -115,7 +110,7 @@ div#wrapper {
     overflow: scroll;
 }
 div.thumbs {
-    position:absolute;
+    position: absolute;
     top: 50%;
     height: 340px;
     margin-top:-170px;
@@ -124,11 +119,13 @@ div.thumbs {
 div.thumbs.default {
     display: block;
 }
+div.thumbs img {
+    display: inline;
+    margin: 5px;
+    height: 320px;
+}
 div.thumbs img.first {
     margin-left: 250px;
-}
-div.thumbs img.alone {
-    margin-left: 300px;
 }
 div#big {
     position: absolute;
@@ -168,6 +165,13 @@ div#next {
 div#previous {
     left: 0px;
 }
+
+div.thumbs.default img {
+    margin-left: 300px;
+    position: absolute;
+    height: 375px;
+    top: -25px;
+}
 div#itll-still-be-there {
     width: 2200px;
 }
@@ -202,7 +206,7 @@ div#untitled {
     </div>
     <div id="wrapper">
         <div class="thumbs default">
-            <img class="alone" src="http://farm9.staticflickr.com/8019/7508573742_990c159576.jpg">
+            <img src="http://farm9.staticflickr.com/8019/7508573742_990c159576.jpg">
         </div>
         <div class="thumbs" id="itll-still-be-there">
             <a href="http://farm6.staticflickr.com/5526/9103818905_da5ce7fa74_k.jpg"><img class="first" src="http://farm6.staticflickr.com/5526/9103818905_ee7fb04a80.jpg"/></a>
