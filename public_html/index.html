@@ -37,6 +37,9 @@
         };
         $('#menu a').click(function() {
             var id = $(this).attr('href');
+            if (id.substring(0,1) != '#') {
+                return true;
+            }
             $('.thumbs:visible').fadeOut({
                 duration:100,
                 complete: function () {
@@ -155,36 +158,38 @@ div#big {
 div.nav {
     position: absolute;
     height: 100%;
-    width: 100px;
-    text-align: center;
-}
-div.nav a:hover {
-    color: rgba(180,180,180,1);
+    width: 20%;
 }
 div.nav a {
-    color: rgba(255,255,255,0.1);
-    position: absolute;
-    height: 20px;
-    margin-top: -10px;
-    left: 0;
-    right: 0;
-    top: 50%;
-    margin: auto;
+    height: 100%;
+    text-align: center;
+    display: block;
+    background-color: rgba(0,0,0,0.0);
 }
-div.login {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    z-index: 5;
-}
-div.login a {
-    color: #BBB;
+div.nav a:hover {
+    background-color: rgba(255,255,255,0.1);
 }
 div#next {
     right: 0px;
 }
 div#previous {
     left: 0px;
+}
+div#info-group {
+    position: absolute;
+    bottom: 0px;
+    right: 10px;
+    z-index: 1;
+}
+div#info-group li {
+    margin-right: 10px;
+    display: inline;
+}
+div#info-group a {
+    color: #BBB;
+}
+div#info-group a:hover {
+    color: #333;
 }
 </style>
 </head>
@@ -200,7 +205,36 @@ div#previous {
             <li><a href="#untitled">Untitled</a></li>
         </ul>
     </div>
-    <div class="login"><a href="/login">&Delta;</a></div>
+    <div id="info-group">
+        <ul>
+            <li><a href="http://twitter.com/lacyrhoades">Twitter</a></li>
+            <li><a href="http://lacyrhoades.tumblr.com">Tumblr</a></li>
+            <li>
+                <script type="text/javascript" language="javascript">
+                <!--
+                // http://www.jottings.com/obfuscator/
+                { coded = "jXKH@KbjbpA7Xt.37r"
+                  key = "S4fEnMWUAjZXDQqYbOyGtz3P0IhNTukvc952HJreBRL1xwC8sFKmdliap7Vgo6"
+                  shift=coded.length
+                  link=""
+                  for (i=0; i<coded.length; i++) {
+                    if (key.indexOf(coded.charAt(i))==-1) {
+                      ltr = coded.charAt(i)
+                      link += (ltr)
+                    }
+                    else {     
+                      ltr = (key.indexOf(coded.charAt(i))-shift+key.length) % key.length
+                      link += (key.charAt(ltr))
+                    }
+                  }
+                document.write("<a href='mailto:"+link+"'>Email</a>")
+                }
+                //-->
+                </script>
+            </li>
+            <li><a href="/login">Login</a></li>
+        </ul>
+    </div>
     <div id="wrapper">
         <div class="thumbs" style="display:block;width:100%">
             <img style="left:0;right:0;margin:auto;position:absolute;height:768px;top:-220px" src="http://farm9.staticflickr.com/8019/7508573742_990c159576_b.jpg">
@@ -264,8 +298,8 @@ div#previous {
         </div>
     </div>
     <div id="big">
-        <div class="nav" id="next"><a href="next" class="navlink">Next</a></div>
-        <div class="nav" id="previous"><a href="previous" class="navlink">Previous</a></div>
+        <div class="nav" id="next"><a href="next" class="navlink">&nbsp;</a></div>
+        <div class="nav" id="previous"><a href="previous" class="navlink">&nbsp;</a></div>
     </div>
 </body>
 </html>
