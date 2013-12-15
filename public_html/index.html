@@ -238,14 +238,29 @@ $(document).ready(function() {
     div {
         max-width: 100%;
     }
+    div.thumbs {
+        width: 100%;
+    }
     img {
         width: 100%;
         height: auto;
     }
 }
 
+@media (max-width:600px) and (min-width:350px) {
+    img {
+        max-height: 100%;
+        max-width: 100%;
+        width: auto;
+        display: block;
+        left: 0;
+        right: 0;
+        margin: auto auto 35px auto;
+    }    
+}
+
 </style>
-<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1">
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0">
 </head>
 <body>
     <div id="menu">
@@ -357,7 +372,7 @@ $(document).ready(function() {
             <a href="http://farm8.staticflickr.com/7340/8729646801_9b52753519_o.jpg"><img src="grey.gif" data-original="http://farm8.staticflickr.com/7340/8729646801_2c3e13d1ac.jpg"></a>
         </div>
         <div class="thumbs" id="about" style="width: 1150px;">
-            <a href="license.jpg"><img class="first" src="grey.gif" data-original="license.500.jpg"></a>
+            <a href="license.jpg"><img class="first" src="grey.gif" width="512px" data-original="license.500.jpg"></a>
             <div class="description">John Lacy Rhoades is not an artist living in New York City.</div>
         </div>
     </div>
