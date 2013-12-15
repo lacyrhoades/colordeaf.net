@@ -1,197 +1,251 @@
 <html>
 <head>
-    <title>Lacy Rhoades</title>
-    <script type="text/javascript" src="jquery.js"></script>
-    <script type="text/javascript" src="jquery.lazyload.js"></script>
-    <script type="text/javascript">
-    $(document).ready(function() {
-        $("img").lazyload({
-            effect : "fadeIn",
-            container: $('#wrapper')
-        });
-        var current;
-        var next = function() {
-            var url = '';
-            if (current.next().length) {
-                current = current.next();
-            } else {
-                current = current.siblings().first();
-            }
-            url = 'url('+current.attr('href')+')';
-            $('#big').css('background-image', url).show();
-            return false;
-        };
-        var previous = function() {
-            var url = '';
-            if (current.prev().length) {
-                current = current.prev();
-            } else {
-                current = current.siblings().last();
-            }
-            url = 'url('+current.attr('href')+')';
-            $('#big').css('background-image', url).show();
-            return false;
-        };
-        var dismiss = function() {
-            $('#big').hide();
-        };
-        $('#menu a').click(function() {
-            var id = $(this).attr('href');
-            if (id.substring(0,1) != '#') {
-                return true;
-            }
-            $('.thumbs:visible').fadeOut({
-                duration:100,
-                complete: function () {
-                    $('#wrapper').scrollLeft(0);
-                    $(id).fadeIn({duration:400});
-                    $(id+' img').each(function() {
-                        // triggers jquery.lazyload.js
-                        $(this).trigger("appear");
-                    });
-                }
-            });
-            return false;
-        });
-        $('.thumbs a').click(function() {
-            current = $(this);
-            var url = current.attr('href');
-            url = 'url('+url+')';
-            $('#big').css('background-image', url).show();
-            return false;
-        });
-        $('#big').click(dismiss);
-        $('#next').click(next);
-        $('#previous').click(previous);
-        $(document).keydown(function (e) {
-            if (e.keyCode == 37) {
-                previous();
-            } else if (e.keyCode == 39) {
-                next();
-            } else if (e.keyCode == 27) {
-                dismiss();
-            }
-        });
+<title>Lacy Rhoades</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript" src="jquery.lazyload.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $("img").lazyload({
+        effect : "fadeIn",
+        container: $('#wrapper')
     });
-    </script>
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-27644954-2', 'colordeaf.net');
-      ga('send', 'pageview');
-    </script>
+    var current;
+    var next = function() {
+        var url = '';
+        if (current.next().length) {
+            current = current.next();
+        } else {
+            current = current.siblings().first();
+        }
+        url = 'url('+current.attr('href')+')';
+        $('#big').css('background-image', url).show();
+        return false;
+    };
+    var previous = function() {
+        var url = '';
+        if (current.prev().length) {
+            current = current.prev();
+        } else {
+            current = current.siblings().last();
+        }
+        url = 'url('+current.attr('href')+')';
+        $('#big').css('background-image', url).show();
+        return false;
+    };
+    var dismiss = function() {
+        $('#big').hide();
+    };
+    $('#menu a').click(function() {
+        var id = $(this).attr('href');
+        if (id.substring(0,1) != '#') {
+            return true;
+        }
+        $('.thumbs:visible').fadeOut({
+            duration: 100,
+            complete: function () {
+                $('#wrapper').scrollLeft(0);
+                $(id).fadeIn({duration:400});
+                $(id+' img').each(function() {
+                    // triggers jquery.lazyload.js
+                    $(this).trigger("appear");
+                });
+            }
+        });
+        return false;
+    });
+    $('.thumbs a').click(function() {
+        if ($('#menu').hidden()) {
+            return true;
+        }
+        current = $(this);
+        var url = current.attr('href');
+        url = 'url('+url+')';
+        $('#big').css('background-image', url).show();
+        return false;
+    });
+    $('#big').click(dismiss);
+    $('#next').click(next);
+    $('#previous').click(previous);
+    $(document).keydown(function (e) {
+        if (e.keyCode == 37) {
+            previous();
+        } else if (e.keyCode == 39) {
+            next();
+        } else if (e.keyCode == 27) {
+            dismiss();
+        }
+    });
+});
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-27644954-2', 'colordeaf.net');
+  ga('send', 'pageview');
+</script>
 <style>
-body {
-    background-color: #F2F2F2;
-    margin: 0px;
-    padding: 0px;
-    font-family: "Georgia", "Times", serif;
-    font-size: 12px;
+@media (min-width:600px) {
+    body {
+        background-color: #F2F2F2;
+        margin: 0px;
+        padding: 0px;
+        font-family: "Georgia", "Times", serif;
+        font-size: 12px;
+        color: #333;
+    }
+    a {
+        text-decoration: none;
+        color: #444;
+    }
+    ul {
+        list-style-type: none;
+    }
+    div#menu {
+        background-color: none;
+        position: absolute;
+        top: 15px;
+        bottom: 15px;
+        left: 15px;
+        margin: auto;
+        width: 220px;
+        z-index: 1;
+        transition: background-color 1s;
+    }
+    div#menu:hover {
+        background-color: #FFF;
+        transition: background-color 500ms;
+    }
+    div#menu h2 {
+        margin: 15px;
+        font-size: 12px;
+    }
+    div#menu li {
+        margin: 5px 5px 10px 5px;
+    }
+    div#wrapper {
+        position: relative;
+        height: 100%;
+        margin: 0px;
+        overflow: scroll;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    img#splash {
+        left: 0;
+        right: 0;
+        margin: auto;
+        position: absolute;
+        height:480px;
+        top:-80px;
+    }
+    div.thumbs {
+        position: absolute;
+        top: 50%;
+        height: 340px;
+        margin-top:-170px;
+        display: none;
+    }
+    div.thumbs img {
+        float: left;
+        margin: 5px;
+        height: 320px;
+    }
+    div.thumbs img.first {
+        margin-left: 250px;
+    }
+    div.thumbs div.description {
+        float: left;
+        margin: 0px;
+        height: 320px;
+        width: 320px;
+        font-size: 18px;
+        font-style: italic;
+        line-height: 28px;
+        padding: 30px 0px 0px 10px;
+    }
+    div.thumbs div.description p {
+        margin: 5px;
+    }
+    div#big {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: #151515;
+        z-index: 2;
+        display: none;
+    }
+    div.nav {
+        position: absolute;
+        height: 100%;
+        width: 20%;
+    }
+    div.nav a {
+        height: 100%;
+        text-align: center;
+        display: block;
+        background-color: rgba(0,0,0,0.0);
+    }
+    div.nav a:hover {
+        background-color: rgba(255,255,255,0.1);
+    }
+    div#next {
+        right: 0px;
+    }
+    div#previous {
+        left: 0px;
+    }
+    div#info-group {
+        position: absolute;
+        bottom: 0px;
+        right: 10px;
+        z-index: 1;
+    }
+    div#info-group li {
+        margin: 0px 10px 10px 0px;
+        float: left;
+    }
+    div#info-group a {
+        color: #BBB;
+    }
+    div#info-group a:hover {
+        color: #333;
+    }
 }
-a {
-    text-decoration: none;
-    color: #333;
+
+@media (max-width:600px) {
+    body {
+        margin: 0px;
+    }
+    div#menu {
+        display: none;
+    }
+    div#info-group {
+        display: none;
+    }
+    div#big {
+        display: none;
+    }
+    div.description {
+        display:none;
+    }
+    div {
+        max-width: 100%;
+    }
+    img {
+        width: 100%;
+        height: auto;
+    }
 }
-ul {
-    list-style-type: none;
-}
-div#menu {
-    background-color: none;
-    position: absolute;
-    top: 15px;
-    bottom: 15px;
-    left: 15px;
-    margin: auto;
-    width: 220px;
-    z-index: 1;
-    transition: background-color 1s;
-}
-div#menu:hover {
-    background-color: #FFF;
-    transition: background-color 500ms;
-}
-div#menu h2 {
-    margin: 15px;
-    font-size: 12px;
-}
-div#menu li {
-    margin: 5px 5px 10px 5px;
-}
-div#wrapper {
-    position: relative;
-    height: 100%;
-    margin: 0px;
-    overflow: scroll;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-}
-div.thumbs {
-    position: absolute;
-    top: 50%;
-    height: 340px;
-    margin-top:-170px;
-    display: none;
-}
-div.thumbs img {
-    display: inline;
-    margin: 5px;
-    height: 320px;
-}
-div.thumbs img.first {
-    margin-left: 250px;
-}
-div#big {
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: #151515;
-    z-index: 2;
-    display: none;
-}
-div.nav {
-    position: absolute;
-    height: 100%;
-    width: 20%;
-}
-div.nav a {
-    height: 100%;
-    text-align: center;
-    display: block;
-    background-color: rgba(0,0,0,0.0);
-}
-div.nav a:hover {
-    background-color: rgba(255,255,255,0.1);
-}
-div#next {
-    right: 0px;
-}
-div#previous {
-    left: 0px;
-}
-div#info-group {
-    position: absolute;
-    bottom: 0px;
-    right: 10px;
-    z-index: 1;
-}
-div#info-group li {
-    margin-right: 10px;
-    display: inline;
-}
-div#info-group a {
-    color: #BBB;
-}
-div#info-group a:hover {
-    color: #333;
-}
+
 </style>
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1">
 </head>
 <body>
     <div id="menu">
@@ -203,6 +257,7 @@ div#info-group a:hover {
             <li><a href="#cost-of-living">Cost of Living</a></li>
             <li><a href="#nolo-contendere">Nolo Contendere</a></li>
             <li><a href="#untitled">Untitled</a></li>
+            <li><a href="#about">About</a></li>
         </ul>
     </div>
     <div id="info-group">
@@ -237,40 +292,45 @@ div#info-group a:hover {
     </div>
     <div id="wrapper">
         <div class="thumbs" style="display:block;width:100%">
-            <img style="left:0;right:0;margin:auto;position:absolute;height:480px;top:-80px" src="http://farm9.staticflickr.com/8019/7508573742_990c159576_z.jpg">
+            <img id="splash" src="http://farm9.staticflickr.com/8019/7508573742_990c159576_z.jpg">
         </div>
-        <div class="thumbs" id="itll-still-be-there" style="width: 2200px;">
+        <div class="thumbs" id="itll-still-be-there" style="width: 2400px;">
             <a href="http://farm6.staticflickr.com/5526/9103818905_da5ce7fa74_k.jpg"><img class="first" src="grey.gif" data-original="http://farm6.staticflickr.com/5526/9103818905_ee7fb04a80.jpg" width="427px"/></a>
             <a href="http://farm8.staticflickr.com/7342/9106048978_8bbcf4c474_k.jpg"><img src="grey.gif" data-original="http://farm8.staticflickr.com/7342/9106048978_1e9952ca7d.jpg" width="480px"/></a>
             <a href="http://farm6.staticflickr.com/5324/9025076137_a4afc0918e_k.jpg"><img src="grey.gif" data-original="http://farm6.staticflickr.com/5324/9025076137_0b06da305d.jpg" width="427px"/></a>
             <a href="http://farm6.staticflickr.com/5328/9103818673_1b3fe3b2f6_k.jpg"><img src="grey.gif" data-original="http://farm6.staticflickr.com/5328/9103818673_a4f3ac17fa.jpg" width="427px"/></a>
+            <div class="description"><p>California</p><p>2013</p></div>
         </div>
-        <div class="thumbs" id="contented" style="width: 2400px;">
+        <div class="thumbs" id="contented" style="width: 2700px;">
             <a href="http://farm8.staticflickr.com/7002/6771215331_bd6e7ffc62_o.jpg"><img class="first" src="grey.gif" data-original="http://farm8.staticflickr.com/7002/6771215331_53e863f01b.jpg" width="480px"></a>
             <a href="http://farm6.staticflickr.com/5321/9345913819_d14826f789_o.jpg"><img src="grey.gif" data-original="http://farm6.staticflickr.com/5321/9345913819_eb9c5bcf2d_c.jpg" width="783px"></a>
             <a href="http://farm8.staticflickr.com/7165/6786696359_75b1559220_o.jpg"><img src="grey.gif" data-original="http://farm8.staticflickr.com/7165/6786696359_9c7f981f2b.jpg" width="480px"></a>
             <a href="http://farm8.staticflickr.com/7030/6786694645_15c7c919d8_o.jpg"><img src="grey.gif" data-original="http://farm8.staticflickr.com/7030/6786694645_79030a7112.jpg" width="213px"></a>
+            <div class="description"><p>Michigan</p><p>2007</p></div>
         </div>
-        <div class="thumbs" id="litany" style="width: 3100px;">
+        <div class="thumbs" id="litany" style="width: 3400px;">
             <a href="http://farm9.staticflickr.com/8222/8258647605_96b3bcf476_o.jpg"><img class="first" src="grey.gif" data-original="http://farm9.staticflickr.com/8222/8258647605_cdd7195030.jpg" width="427px"></a>
             <a href="http://farm9.staticflickr.com/8075/8258644639_78cb19a042_o.jpg"><img src="grey.gif" data-original="http://farm9.staticflickr.com/8075/8258644639_917b20021b.jpg" width="427px"></a>
             <a href="http://farm8.staticflickr.com/7229/7227139796_ac0d354c7c_o.jpg"><img src="grey.gif" data-original="http://farm8.staticflickr.com/7229/7227139796_f775df08c0.jpg" width="427px"></a>
             <a href="http://farm6.staticflickr.com/5071/7227139442_9556731833_o.jpg"><img src="grey.gif" data-original="http://farm6.staticflickr.com/5071/7227139442_8857678afa.jpg" width="427px"></a>
             <a href="http://farm8.staticflickr.com/7088/7227140504_5b79e7c5b9_o.jpg"><img src="grey.gif" data-original="http://farm8.staticflickr.com/7088/7227140504_1679da26a3.jpg" width="427px"></a>
             <a href="http://farm6.staticflickr.com/5328/7227140226_4ceb6a6ee8_o.jpg"><img src="grey.gif" data-original="http://farm6.staticflickr.com/5328/7227140226_d1b956567f.jpg" width="427px"></a>
+            <div class="description"><p>Tennessee</p><p>2012</p></div>
         </div>
-        <div class="thumbs" id="cost-of-living" style="width: 2600px;">
+        <div class="thumbs" id="cost-of-living" style="width: 2800px;">
             <a href="http://farm8.staticflickr.com/7153/6758746411_0cef8c5c6e_o.jpg"><img class="first" src="grey.gif" data-original="http://farm8.staticflickr.com/7153/6758746411_07a2dfaa23.jpg" width="466px"></a>
             <a href="http://farm8.staticflickr.com/7166/6758745459_0782c48269_o.jpg"><img src="grey.gif" data-original="http://farm8.staticflickr.com/7166/6758745459_ca4344e43f.jpg" width="212px"></a>
             <a href="http://farm8.staticflickr.com/7022/6786696667_36ab36e813_o.jpg"><img src="grey.gif" data-original="http://farm8.staticflickr.com/7022/6786696667_c236c51bf4.jpg" width="480px"></a>
             <a href="http://farm8.staticflickr.com/7006/6758746711_a1b57c0e9a_o.jpg"><img src="grey.gif" data-original="http://farm8.staticflickr.com/7006/6758746711_af437bb5b2.jpg" width="486px"></a>
             <a href="http://farm8.staticflickr.com/7023/6758745901_8725be608f_o.jpg"><img src="grey.gif" data-original="http://farm8.staticflickr.com/7023/6758745901_036217bd00.jpg" width="514px"></a>
+            <div class="description"><p>Nashville</p><p>2009-2011</p></div>
         </div>
-        <div class="thumbs" id="nolo-contendere" style="width: 2200px;">
+        <div class="thumbs" id="nolo-contendere" style="width: 2500px;">
             <a href="http://farm8.staticflickr.com/7079/6855837940_d21459f95f_o.jpg"><img class="first" src="grey.gif" data-original="http://farm8.staticflickr.com/7079/6855837940_7c8d332cdd.jpg" width="427px"></a>
             <a href="http://farm3.staticflickr.com/2894/9012157375_38a90e1e35_o.jpg"><img src="grey.gif" data-original="http://farm3.staticflickr.com/2894/9012157375_e4e8fde552.jpg" width="480px"></a>
             <a href="http://farm7.staticflickr.com/6054/6279112788_be219c24ac_o.jpg"><img src="grey.gif" data-original="http://farm7.staticflickr.com/6054/6279112788_41de39db2f.jpg" width="427px"></a>
             <a href="http://farm4.staticflickr.com/3711/9045272771_e04a77db72_o.jpg"><img src="grey.gif" data-original="http://farm4.staticflickr.com/3711/9045272771_f581ba5c85.jpg" width="427px"></a>
+            <div class="description"><p>2011-2013</p></div>
         </div>
         <div class="thumbs" id="untitled" style="width: 9400px;">
             <a href="http://farm8.staticflickr.com/7062/6787735456_9f67709d5c_o.jpg"><img class="first" src="grey.gif" data-original="http://farm8.staticflickr.com/7062/6787735456_c89e4f07b4.jpg"></a>
@@ -295,6 +355,10 @@ div#info-group a:hover {
 
             <a href="http://farm8.staticflickr.com/7341/8729646745_0afa0df9ff_o.jpg"><img class="first" src="grey.gif" data-original="http://farm8.staticflickr.com/7341/8729646745_c7a0577ecd.jpg"></a>
             <a href="http://farm8.staticflickr.com/7340/8729646801_9b52753519_o.jpg"><img src="grey.gif" data-original="http://farm8.staticflickr.com/7340/8729646801_2c3e13d1ac.jpg"></a>
+        </div>
+        <div class="thumbs" id="about" style="width: 1150px;">
+            <a href="license.jpg"><img class="first" src="grey.gif" data-original="license.500.jpg"></a>
+            <div class="description">John Lacy Rhoades is not an artist living in New York City.</div>
         </div>
     </div>
     <div id="big">
