@@ -54,7 +54,7 @@ $(document).ready(function() {
         return false;
     });
     $('.thumbs a').click(function() {
-        if ($('#menu').hidden()) {
+        if (!$('#menu').is(":visible")) {
             return true;
         }
         current = $(this);
