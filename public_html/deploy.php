@@ -1,10 +1,3 @@
 <?php
 
-$correctMethod = "POST";
-$correctSecret = "KEBZmd8D2HujpQ";
-
-if ($method == $correctMethod && $secret == $correctSecret) {
-  // update website
-}
-
-echo exec('git pull origin master');
+echo exec('git reset --hard origin/master && git pull origin master');
