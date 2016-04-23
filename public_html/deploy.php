@@ -1,3 +1,3 @@
 <?php
 
-exec('git reset --hard origin/master && git pull origin master');
+exec('/user/bin/git reset --hard origin/master && /user/bin/git pull origin master');
