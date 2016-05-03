@@ -1,0 +1,14 @@
+body {
+  color: #333;
+  font-family: -apple-system, Helvetica, Arial, sans-serif;
+  margin: 5% 15% 10% 15%;
+}
+p {
+  width: 100%;
+}
+img {
+  border: 0px;
+  max-width: 80%;
+  display: block;
+  margin: 0 auto;
+}
