@@ -17,6 +17,7 @@
 1:08:12 Watching train pass by
 1:09:20 Walking up the hill, wide shot
 1:13:39 Driving with a map
+1:14:05 Driving through field
 1:16:50 Grand Coulee Dam
 1:21:03 Car drives away from camera in the dust
 
@@ -26,4 +27,5 @@ Car:
 31:30 Driving / crossfade
 1:03 reading from the magazine
 1:13:39 Driving with a map
+1:14:05 Driving through field
 1:21:03 Car drives away from camera in the dust
