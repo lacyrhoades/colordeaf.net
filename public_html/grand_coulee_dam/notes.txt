@@ -1,3 +1,4 @@
+1:11 America shots
 14:54 Follow Kip, pan to the bridge
 14:58 Kip's balloon
 15:30 The dog and Holly
@@ -5,6 +6,7 @@
 19:20 Kip in the doorway
 20:28 Father in the hall
 20:55 Holly's Face
+25:05 Staring at each other (w/ piano)
 27:00 Play button / recorder
 28:25 The piano, burning the house
 31:08 Holly's face, riding in car
@@ -14,4 +16,14 @@
 1:03 reading from the magazine
 1:08:12 Watching train pass by
 1:09:20 Walking up the hill, wide shot
+1:13:39 Driving with a map
 1:16:50 Grand Coulee Dam
+1:21:03 Car drives away from camera in the dust
+
+Car:
+14:54 Follow Kip, pan to the bridge
+31:08 Holly's face, riding in car
+31:30 Driving / crossfade
+1:03 reading from the magazine
+1:13:39 Driving with a map
+1:21:03 Car drives away from camera in the dust
